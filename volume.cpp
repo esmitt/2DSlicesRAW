@@ -14,9 +14,8 @@ void CVolume::clean()
 }
 
 // Constructor
-CVolume::CVolume()
+CVolume::CVolume() : m_data(nullptr)
 {
-	m_data = nullptr;
 }
 
 // Destructor
@@ -32,11 +31,11 @@ CVolume::~CVolume()
 // @param cols number of slices of the volume
 //
 // @return true if is valid, otherwise false
-bool CVolume::readFile(std::string name, const int slices, const int rows, const int cols)
+bool CVolume::readFile(std::string name, const int rows, const int cols, const int slices)
 {
-	m_nslices = slices;
 	m_nrows = rows;
 	m_ncols = cols;
+	m_nslices = slices;
 	clean();
 	m_data = malloc3D(m_nrows, m_ncols, m_nslices);
 	
@@ -87,7 +86,7 @@ puchar CVolume::getSagittalSlice(int iIndex)
 			data[x + 2] = m_data[k][i][iIndex];
 			x += 3;
 		}
-	_ASSERT(x == m_nslices * m_ncols * 3);
+	_ASSERT(x == m_nslices * m_nrows * 3);
 	return data;
 }
 

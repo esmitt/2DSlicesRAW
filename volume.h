@@ -59,7 +59,7 @@ public:
 	int m_nrows;
 	int m_ncols;
 
-	bool readFile(std::string name, const int slices, const int rows, const int cols);
+	bool readFile(std::string name, const int rows, const int cols, const int slices);
 	puchar getAxialSlice(int iIndex);
 	puchar getCoronalSlice(int iIndex);
 	puchar getSagittalSlice(int iIndex);

@@ -225,7 +225,7 @@ bool initialize()
 	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 	//read the volume
 	string name = "CTHeadBabyClean256x256x94.raw";	//a raw binary-format volume
-	if (!m_volume.readFile(name, 94, 256, 256))
+	if (!m_volume.readFile(name, 256, 256, 94))
 		std::cout << "error opening the file" << std::endl;
 	
 	glGenTextures(1, &m_arrTextureID[Axial]);
