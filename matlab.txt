@@ -1,0 +1,6 @@
+imaVOLROI_scaled = (imaVOLROI - min(min(min(imaVOLROI)))) / (max(max(max(imaVOLROI))) - min(min(min(imaVOLROI))));
+imaVOLROI_scaled = imaVOLROI_scaled * 255;
+imaVOLROI_uchar = uint8(imaVOLROI_scaled);
+fileID = fopen('LENS_P3_16_07_2015_ESP_SIN.raw', 'w');
+fwrite(fileID,imaVOLROI_uchar);
+fclose(fileID);
